@@ -13,36 +13,29 @@ const App: React.FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
-    // Artificial delay for a smooth entry
-    const timer = setTimeout(() => setIsLoaded(true), 500);
-    return () => clearTimeout(timer);
+    const timer = window.setTimeout(() => setIsLoaded(true), 500);
+    return () => window.clearTimeout(timer);
   }, []);
 
   return (
     <div className="relative min-h-screen selection:bg-rose-200 selection:text-rose-900 overflow-x-hidden">
       <FloatingHearts />
       
-      <AnimatePresence>
+      <AnimatePresence mode="wait">
         {!isLoaded ? (
           <motion.div 
             key="loader"
             className="fixed inset-0 z-50 flex items-center justify-center bg-[#FFF9F9]"
             exit={{ opacity: 0 }}
           >
-            <motion.div 
-              animate={{ scale: [1, 1.2, 1], opacity: [0.5, 1, 0.5] }}
-              transition={{ repeat: Infinity, duration: 2 }}
-              className="text-pink-300 text-4xl"
-            >
-              ❤️
-            </motion.div>
+            <div className="text-pink-300 text-4xl animate-pulse">❤️</div>
           </motion.div>
         ) : (
           <motion.main 
             key="content"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ duration: 1 }}
+            transition={{ duration: 0.8 }}
             className="relative z-10"
           >
             <Hero />
