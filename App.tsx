@@ -1,13 +1,13 @@
 
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import Hero from './components/Hero';
-import About from './components/About';
-import Poem from './components/Poem';
-import Message from './components/Message';
-import Surprise from './components/Surprise';
-import Footer from './components/Footer';
-import FloatingHearts from './components/FloatingHearts';
+import Hero from './components/Hero.tsx';
+import About from './components/About.tsx';
+import Poem from './components/Poem.tsx';
+import Message from './components/Message.tsx';
+import Surprise from './components/Surprise.tsx';
+import Footer from './components/Footer.tsx';
+import FloatingHearts from './components/FloatingHearts.tsx';
 
 const App: React.FC = () => {
   const [isLoaded, setIsLoaded] = useState(false);
